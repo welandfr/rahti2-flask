@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+PORT = os.environ.get('PORT', 8080)
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -31,4 +33,5 @@ def test_route():
     return ret
 
 if __name__ == "__main__":
-    app.run(debug=True, port=8080, host='0.0.0.0')
+    app.run(debug=True, port=PORT, host='0.0.0.0')
+    print(f'Flask app running on port {PORT}')
